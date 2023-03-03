@@ -22,6 +22,8 @@ let winStatus = 0;
 let [sec, min, hr] = [0, 0, 0];
 const stopwatch = document.getElementById("time");
 
+let foundations = document.getElementById("foundations");
+
 // Start game //
 // ----------------------------------------------------------------- //
 function startGame() {
@@ -54,6 +56,13 @@ function startGame() {
 
     // Dynamically render cards //
     // ---------------------------------------------------------------------- //
+    for (i = 0; i < 4; i++) {
+            let fdt = document.createElement('img');
+        fdt.className = 'card';
+        fdt.src = 'images/green.jpeg';
+        fdt.style.zIndex = 0;
+        foundations.appendChild(fdt);
+    };
 
 
     // Start stopwatch //
