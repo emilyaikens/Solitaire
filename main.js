@@ -56,6 +56,8 @@ function startGame() {
 
     // Dynamically render cards //
     // ---------------------------------------------------------------------- //
+    
+    // Foundations
     for (i = 0; i < 4; i++) {
             let fdt = document.createElement('img');
         fdt.className = 'card';
@@ -64,6 +66,14 @@ function startGame() {
         foundations.appendChild(fdt);
     };
 
+    // Tableau
+    for (i = 0; i < 7; i++) {
+        let tabDiv = document.createElement('div');
+        tabDiv.setAttribute('id', `tab${i + 1}`)
+        tabDiv.className = 'card';
+        tabDiv.style.zIndex = 0;
+        tableau.appendChild(tabDiv);
+    }
 
     // Start stopwatch //
     // ---------------------------------------------------------------------- //
