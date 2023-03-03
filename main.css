@@ -22,28 +22,10 @@ h1 {
 }
 
 /* -------- main -------- */
-
 .cards-container {
     display: flex;
     align-items: stretch;
     height: 70vh;
-}
-#col-1 {
-    display: flex;
-    flex: 0.25;
-    background-color: lightblue;
-    justify-content: center;
-}
-#col-2 {
-    flex: 0.75;
-    background-color: lightcoral;
-}
-#tableau, #deck {
-    margin-top: 30px;
-}
-#foundations {
-    background-color: lightpink;
-    padding: 20px 0px 20px 0px;
 }
 .card {
     border: solid black 2px;
@@ -51,3 +33,40 @@ h1 {
     width: 60px;
     margin: 20px;
 }
+
+    /* -------- column 1 -------- */
+#col-1 {
+    display: flex;
+    flex: 0.25;
+    background-color: lightblue;
+    justify-content: center;
+    position: relative;
+}
+#deck {
+    margin-top: 30px;
+}
+.deck-card {
+    position: absolute;
+    left: 20px;
+    top: 0;
+}
+img {
+    border: solid black 2px;
+    height: 90px;
+    width: 60px;
+    margin: 20px;
+}
+
+    /* -------- column 2 -------- */
+#col-2 {
+    flex: 0.75;
+    background-color: lightcoral;
+}
+#tableau {
+    margin-top: 30px;
+}
+#foundations {
+    background-color: lightpink;
+    padding: 20px 0px 20px 0px;
+}
+
