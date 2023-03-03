@@ -32,3 +32,21 @@ createCards('heart', 'red', heartImgs);
 createCards('diamond', 'red', diamondImgs);
 createCards('spade', 'black', spadeImgs);
 createCards('club', 'black', clubImgs);
+
+
+// Shuffle cards //
+// Code based on shuffle function from programiz.com //
+// ----------------------------------------------------------------- //
+for (let i = cards.length - 1; i > 0; i--) {
+    let r = Math.floor(Math.random() * i);
+    let temp = cards[i];
+    cards[i] = cards[r];
+    cards[r] = temp;
+}
+
+// Dynamically render cards //
+// ----------------------------------------------------------------- //
+
+
+// Start timer //
+// ----------------------------------------------------------------- //
