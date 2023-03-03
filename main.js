@@ -58,7 +58,29 @@ function startGame() {
 
     // Start stopwatch //
     // ----------------------------------------------------------------- //
+    // int = setInterval(startStopwatch, 1000) // -----------------------------<<<<<<<<<<<<<<<<<<< COMMENT IN TO START TIMER
 
+    function startStopwatch() {
+
+        // Increase sec, min, hr
+        sec ++;
+        if (sec == 60) {
+            sec = 0;
+            min ++;
+            if (min == 60) {
+                min = 0;
+                hr ++;
+            }
+        }
+
+        // Conditionals to make sure there's a 0 before nums < 10
+        let h = hr < 10 ? '0' + hr : hr;
+        let m = min < 10 ? '0' + min : min;
+        let s = sec < 10 ? '0' + sec : sec;
+
+        // Update innerHTML of stopwatch div
+        stopwatch.innerHTML = `${h} : ${m} : ${s}`;
+    }
 
 } // End of startGame function
 
