@@ -1,20 +1,23 @@
 // Create card class //
 // ----------------------------------------------------------------- //
 class Card {
-    constructor(suite, value, color, img) {
+    constructor(suite, value, color, img, id) {
         this.suite = suite;
         this.value = value;
         this.color = color;
         this.img = img;
+        this.id = id;
     }
 }
 
-// Arrays of links to card images //
+// Game vars //
 // ----------------------------------------------------------------- //
 let heartImgs = ['','','','','','','','','','','','','']
 let diamondImgs = ['','','','','','','','','','','','','']
 let spadeImgs = ['','','','','','','','','','','','','']
 let clubImgs = ['','','','','','','','','','','','','']
+
+let winStatus = 0;
 
 
 // Start game //
@@ -26,17 +29,16 @@ function startGame() {
     // ----------------------------------------------------------------- //
     let cards = []
 
-    function createCards(suite, color, imgs) {
+    function createCards(suite, color, imgs, idMod) {
         for (let i = 1; i < 14; i++) {
-            cards.push(new Card (suite, i, color, imgs[i-1]))
+            cards.push(new Card (suite, i, color, imgs[i-1], idMod + i))
         };
     }
 
-    createCards('heart', 'red', heartImgs);
-    createCards('diamond', 'red', diamondImgs);
-    createCards('spade', 'black', spadeImgs);
-    createCards('club', 'black', clubImgs);
-
+    createCards('heart', 'red', heartImgs, 0);
+    createCards('diamond', 'red', diamondImgs, 13);
+    createCards('spade', 'black', spadeImgs, 26);
+    createCards('club', 'black', clubImgs, 39);
 
     // Shuffle cards //
     // Code based on shuffle function from programiz.com //
