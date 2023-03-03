@@ -59,6 +59,14 @@ function startGame() {
     // Dynamically render cards //
     // ---------------------------------------------------------------------- //
 
+    function addCard(side, i) {
+        let card = document.createElement('img');
+        card.className = side;
+        card.src = cards[i].img;
+        thisCard = document.getElementById(cards[i].id);
+        thisCard.appendChild(card);
+    }
+
     // Deck
     for (i = 0; i < 24; i++) {
         let deckCard = document.createElement('div');
@@ -69,14 +77,6 @@ function startGame() {
 
         addCard('front', i);
         // addCard('back', i);
-    }
-
-    function addCard(side, i) {
-        let card = document.createElement('img');
-        card.className = side;
-        card.src = cards[i].img;
-        thisCard = document.getElementById(cards[i].id);
-        thisCard.appendChild(card);
     }
 
     // Foundations
