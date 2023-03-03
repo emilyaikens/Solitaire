@@ -1,4 +1,4 @@
-// create card class //
+// Create card class //
 // ----------------------------------------------------------------- //
 class Card {
     constructor(suite, value, color, img) {
@@ -10,7 +10,7 @@ class Card {
 }
 
 
-// array of links to card images //
+// Arrays of links to card images //
 // ----------------------------------------------------------------- //
 let heartImgs = ['','','','','','','','','','','','','']
 let diamondImgs = ['','','','','','','','','','','','','']
@@ -18,7 +18,7 @@ let spadeImgs = ['','','','','','','','','','','','','']
 let clubImgs = ['','','','','','','','','','','','','']
 
 
-// instantiate new cards and push to card array //
+// Instantiate new cards and push to cards array //
 // ----------------------------------------------------------------- //
 let cards = []
 
