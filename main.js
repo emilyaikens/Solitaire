@@ -19,6 +19,9 @@ let clubImgs = ['','','','','','','','','','','','','']
 
 let winStatus = 0;
 
+let [sec, min, hr] = [0, 0, 0];
+const stopwatch = document.getElementById("time");
+
 // Start game //
 // ----------------------------------------------------------------- //
 function startGame() {
@@ -55,7 +58,8 @@ function startGame() {
 
     // Start stopwatch //
     // ----------------------------------------------------------------- //
-    
-}
+
+
+} // End of startGame function
 
 startGame(); // <<<<<<<<<<<< START GAME <<<<<<<<<<<< //
