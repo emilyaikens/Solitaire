@@ -28,7 +28,7 @@ function startGame() {
 
 
     // Instantiate new cards and push to cards array //
-    // ----------------------------------------------------------------- //
+    // ----------------------------------------------------------------------- //
     let cards = []
 
     function createCards(suite, color, imgs, idMod) {
@@ -44,7 +44,7 @@ function startGame() {
 
     // Shuffle cards //
     // Code based on shuffle function from programiz.com //
-    // ----------------------------------------------------------------- //
+    // ---------------------------------------------------------------------- //
     for (let i = cards.length - 1; i > 0; i--) {
         let r = Math.floor(Math.random() * i);
         let temp = cards[i];
@@ -53,11 +53,11 @@ function startGame() {
     }
 
     // Dynamically render cards //
-    // ----------------------------------------------------------------- //
+    // ---------------------------------------------------------------------- //
 
 
     // Start stopwatch //
-    // ----------------------------------------------------------------- //
+    // ---------------------------------------------------------------------- //
     // int = setInterval(startStopwatch, 1000) // -----------------------------<<<<<<<<<<<<<<<<<<< COMMENT IN TO START TIMER
 
     function startStopwatch() {
