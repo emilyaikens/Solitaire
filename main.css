@@ -13,3 +13,26 @@
 .label {
     margin-right: 10px;
 }
+
+/* -------- main -------- */
+
+.cards-container {
+    display: flex;
+    align-items: stretch;
+    height: 70vh;
+}
+#col-1 {
+    display: flex;
+    flex: 0.25;
+    background-color: lightblue;
+    justify-content: center;
+}
+#col-2 {
+    flex: 0.75;
+    background-color: lightcoral;
+}
+.card {
+    border: solid black 2px;
+    height: 90px;
+    width: 60px;
+}
