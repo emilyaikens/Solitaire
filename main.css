@@ -48,7 +48,7 @@ h1 {
 .deck-card {
     position: absolute;
     left: 20px;
-    top: 0;
+    top: 0px;
 }
 img {
     border: solid black 2px;

@@ -79,6 +79,20 @@ function startGame() {
         // addCard('back', i);
     }
 
+    deckCards = document.querySelectorAll('.deck-card');
+    
+    zCountD = 0;
+
+    deckCards.forEach(function(c) {
+        c.addEventListener('click', function stackDeck() {
+            c.style.left = '100px';
+            c.style.top = `${15 * zCountD}px`;
+            c.style.zIndex = zCountD;
+            zCountD++;
+            c.removeEventListener('click', stackDeck)
+        })
+    })
+
     // Foundations
     for (i = 0; i < 4; i++) {
         let fdt = document.createElement('img');
