@@ -12,17 +12,19 @@ class Card {
 
 // Game vars //
 // ----------------------------------------------------------------- //
-let heartImgs = ['','','','','','','','','','','','','']
-let diamondImgs = ['','','','','','','','','','','','','']
-let spadeImgs = ['','','','','','','','','','','','','']
-let clubImgs = ['','','','','','','','','','','','','']
+let heartImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
+let diamondImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
+let spadeImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
+let clubImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 
 let winStatus = 0;
 
 let [sec, min, hr] = [0, 0, 0];
 const stopwatch = document.getElementById("time");
 
-let foundations = document.getElementById("foundations");
+let foundations = document.getElementById('foundations');
+let tableau = document.getElementById('tableau');
+let deck = document.getElementById('deck')
 
 // Start game //
 // ----------------------------------------------------------------- //
@@ -56,10 +58,30 @@ function startGame() {
 
     // Dynamically render cards //
     // ---------------------------------------------------------------------- //
-    
+
+    // Deck
+    for (i = 0; i < 24; i++) {
+        let deckCard = document.createElement('div');
+        deckCard.className = 'deck-card';
+        deckCard.setAttribute('id', cards[i].id);
+        deckCard.style.zIndex = i;
+        deck.appendChild(deckCard);
+
+        addCard('front', i);
+        // addCard('back', i);
+    }
+
+    function addCard(side, i) {
+        let card = document.createElement('img');
+        card.className = side;
+        card.src = cards[i].img;
+        thisCard = document.getElementById(cards[i].id);
+        thisCard.appendChild(card);
+    }
+
     // Foundations
     for (i = 0; i < 4; i++) {
-            let fdt = document.createElement('img');
+        let fdt = document.createElement('img');
         fdt.className = 'card';
         fdt.src = 'images/green.jpeg';
         fdt.style.zIndex = 0;
@@ -69,7 +91,7 @@ function startGame() {
     // Tableau
     for (i = 0; i < 7; i++) {
         let tabDiv = document.createElement('div');
-        tabDiv.setAttribute('id', `tab${i + 1}`)
+        tabDiv.setAttribute('id', `tab${i + 1}`);
         tabDiv.className = 'card';
         tabDiv.style.zIndex = 0;
         tableau.appendChild(tabDiv);
