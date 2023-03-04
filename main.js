@@ -70,7 +70,7 @@ function startGame() {
     // Deck
     for (i = 0; i < 24; i++) {
         let deckCard = document.createElement('div');
-        deckCard.className = 'deck-card';
+        deckCard.classList.add('deck-card', 'card');
         deckCard.setAttribute('id', cards[i].id);
         deckCard.style.zIndex = i;
         deck.appendChild(deckCard);
@@ -160,3 +160,7 @@ deckCards.forEach(function(c) {
         c.removeEventListener('click', stackDeck)
     })
 })
+
+function expose() {
+
+}
