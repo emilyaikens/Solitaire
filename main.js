@@ -90,24 +90,29 @@ function startGame() {
 
     // Tableau
     idxCounter = 24;
+    topCountT = 0;
 
     for (i = 1; i < 8; i++) {
         let tabCol = document.createElement('div');
         tabCol.className = 'tab-col';
         tabCol.setAttribute('id', `tab-col-${i}`);
+        tabCol.style.left = `${i * 100}px`;
         tableau.appendChild(tabCol);
         for(j = 0; j < i; j++) {
             let tabCard = document.createElement('div');
             tabCard.className = 'tab-card';
             tabCard.setAttribute('id', cards[idxCounter].id)
             tabCard.style.zIndex = j;
+            tabCard.style.top = `${15 * topCountT}px`;
             tabCol.appendChild(tabCard);
 
             addFrontBack('front', idxCounter);
             // addFrontBack('back', idxCounter);
-            
+
             idxCounter++;
+            topCountT++;
         }
+        topCountT = 0;
     }
 
     // Start stopwatch //
