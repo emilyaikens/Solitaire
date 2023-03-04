@@ -91,9 +91,7 @@ function startGame() {
     // Tableau
     for (i = 0; i < 7; i++) {
         let tabDiv = document.createElement('div');
-        tabDiv.setAttribute('id', `tab${i + 1}`);
-        tabDiv.className = 'card';
-        tabDiv.style.zIndex = 0;
+        tabDiv.className = 'tab-col';
         tableau.appendChild(tabDiv);
     }
 
@@ -102,8 +100,6 @@ function startGame() {
     // int = setInterval(startStopwatch, 1000) // -----------------------------<<<<<<<<<<<<<<<<<<< COMMENT IN TO START TIMER
 
     function startStopwatch() {
-
-        // Increase sec, min, hr
         sec ++;
         if (sec == 60) {
             sec = 0;
@@ -114,7 +110,7 @@ function startGame() {
             }
         }
 
-        // Conditionals to make sure there's a 0 before nums < 10
+        // Add a 0 before nums < 10
         let h = hr < 10 ? '0' + hr : hr;
         let m = min < 10 ? '0' + min : min;
         let s = sec < 10 ? '0' + sec : sec;
