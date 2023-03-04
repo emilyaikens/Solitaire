@@ -104,6 +104,9 @@ function startGame() {
             tabCard.setAttribute('id', cards[idxCounter].id)
             tabCard.style.zIndex = j;
             tabCard.style.top = `${15 * topCountT}px`;
+            if (j === (i-1)) {
+                tabCard.classList.add('flipped');
+            }
             tabCol.appendChild(tabCard);
 
             addFrontBack('front', idxCounter);
@@ -161,6 +164,3 @@ deckCards.forEach(function(c) {
     })
 })
 
-function expose() {
-
-}

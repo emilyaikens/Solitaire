@@ -27,12 +27,6 @@ h1 {
     align-items: stretch;
     height: 70vh;
 }
-.card {
-    border: solid black 2px;
-    height: 90px;
-    width: 60px;
-    margin: 20px;
-}
 
     /* -------- column 1 -------- */
 #col-1 {
