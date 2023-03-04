@@ -59,7 +59,7 @@ function startGame() {
     // Dynamically render cards //
     // ---------------------------------------------------------------------- //
 
-    function addCard(side, i) {
+    function addFrontBack(side, i) {
         let card = document.createElement('img');
         card.className = side;
         card.src = cards[i].img;
@@ -75,8 +75,8 @@ function startGame() {
         deckCard.style.zIndex = i;
         deck.appendChild(deckCard);
 
-        addCard('front', i);
-        // addCard('back', i);
+        addFrontBack('front', i);
+        // addFrontBack('back', i);
     }
 
     // Foundations
@@ -89,10 +89,25 @@ function startGame() {
     };
 
     // Tableau
-    for (i = 0; i < 7; i++) {
-        let tabDiv = document.createElement('div');
-        tabDiv.className = 'tab-col';
-        tableau.appendChild(tabDiv);
+    idxCounter = 24;
+
+    for (i = 1; i < 8; i++) {
+        let tabCol = document.createElement('div');
+        tabCol.className = 'tab-col';
+        tabCol.setAttribute('id', `tab-col-${i}`);
+        tableau.appendChild(tabCol);
+        for(j = 0; j < i; j++) {
+            let tabCard = document.createElement('div');
+            tabCard.className = 'tab-card';
+            tabCard.setAttribute('id', cards[idxCounter].id)
+            tabCard.style.zIndex = j;
+            tabCol.appendChild(tabCard);
+
+            addFrontBack('front', idxCounter);
+            // addFrontBack('back', idxCounter);
+            
+            idxCounter++;
+        }
     }
 
     // Start stopwatch //
