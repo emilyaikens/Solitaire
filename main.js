@@ -100,7 +100,7 @@ function startGame() {
         tableau.appendChild(tabCol);
         for(j = 0; j < i; j++) {
             let tabCard = document.createElement('div');
-            tabCard.className = 'tab-card';
+            tabCard.classList.add('tab-card', 'card');
             tabCard.setAttribute('id', cards[idxCounter].id)
             tabCard.style.zIndex = j;
             tabCard.style.top = `${15 * topCountT}px`;
