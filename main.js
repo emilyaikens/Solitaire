@@ -17,6 +17,8 @@ let diamondImgs = ['images/card_back.png','images/card_back.png','images/card_ba
 let spadeImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 let clubImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 
+let score = 0;
+let moves = 0;
 let winStatus = 0;
 
 let [sec, min, hr] = [0, 0, 0];
