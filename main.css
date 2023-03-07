@@ -60,14 +60,17 @@ img {
     background-color: lightcoral;
     height: 100vh;
 }
-#tableau {
+#tableau, #foundations {
     margin-top: 30px;
     position: relative;
 }
-.tab-col {
+#tableau {
+    background-color: lightgrey;
+}
+.tab-col, .fd-col {
     margin-right: 90px;
 }
-.tab-card {
+.tab-card, .fd-card {
     position: absolute;
 }
 #foundations {
