@@ -35,6 +35,7 @@ h1 {
     background-color: lightblue;
     justify-content: center;
     position: relative;
+    height: 100vh;
 }
 #deck {
     margin-top: 30px;
@@ -57,13 +58,14 @@ img {
 #col-2 {
     flex: 0.75;
     background-color: lightcoral;
+    height: 100vh;
 }
 #tableau {
     margin-top: 30px;
     position: relative;
 }
 .tab-col {
-    position: absolute;
+    margin-right: 90px;
 }
 .tab-card {
     position: absolute;
