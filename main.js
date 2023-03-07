@@ -82,12 +82,20 @@ function startGame() {
     }
 
     // Foundations
-    for (i = 0; i < 4; i++) {
-        let fdt = document.createElement('img');
-        fdt.className = 'card';
-        fdt.src = 'images/green.jpeg';
-        fdt.style.zIndex = 0;
-        foundations.appendChild(fdt);
+    for (i = 1; i < 5; i++) {
+        let fd = document.createElement('div');
+        fd.className = 'fd-col';
+        fd.setAttribute('id', `fd-col-${i}`);
+        foundations.appendChild(fd);
+
+        let fdCard = document.createElement('div');
+        fdCard.className = 'fd-card';
+        fd.appendChild(fdCard);
+
+        cardHolder = document.createElement('img');
+        cardHolder.src = 'images/green.jpeg';
+        cardHolder.style.zIndex = 0;
+        fdCard.appendChild(cardHolder);
     };
 
     // Tableau
