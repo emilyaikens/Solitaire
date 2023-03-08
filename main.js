@@ -24,9 +24,10 @@ let winStatus = 0;
 let [sec, min, hr] = [0, 0, 0];
 const stopwatch = document.getElementById("time");
 
-let foundations = document.getElementById('foundations');
-let tableau = document.getElementById('tableau');
-let deck = document.getElementById('deck')
+let upper = document.getElementById('upper');
+let lower = document.getElementById('lower');
+let deck = document.getElementById('deck');
+let seen = document.getElementById('seen');
 
 // Start game //
 // ----------------------------------------------------------------- //
@@ -83,13 +84,13 @@ function startGame() {
 
     // Foundations
     for (i = 1; i < 5; i++) {
-        let fd = document.createElement('div');
-        fd.className = 'fd-col';
+        let fd = document.createElement('td');
         fd.setAttribute('id', `fd-col-${i}`);
-        foundations.appendChild(fd);
+        fd.style.position = 'relative';
+        upper.appendChild(fd);
 
         let fdCard = document.createElement('div');
-        fdCard.className = 'fd-card';
+        fdCard.className = 'card';
         fd.appendChild(fdCard);
 
         cardHolder = document.createElement('img');
@@ -99,34 +100,34 @@ function startGame() {
     };
 
     // Tableau
-    idxCounter = 24;
-    topCountT = 0;
+    // idxCounter = 24;
+    // topCountT = 0;
 
-    for (i = 1; i < 8; i++) {
-        let tabCol = document.createElement('div');
-        tabCol.className = 'tab-col';
-        tabCol.setAttribute('id', `tab-col-${i}`);
-        tabCol.style.left = `${i * 100}px`;
-        tableau.appendChild(tabCol);
-        for(j = 0; j < i; j++) {
-            let tabCard = document.createElement('div');
-            tabCard.classList.add('tab-card', 'card');
-            tabCard.setAttribute('id', cards[idxCounter].id)
-            tabCard.style.zIndex = j;
-            tabCard.style.top = `${300 + 15 * topCountT}px`;
-            if (j === (i-1)) {
-                tabCard.classList.add('flipped');
-            }
-            tabCol.appendChild(tabCard);
+    // for (i = 1; i < 8; i++) {
+    //     let tabCol = document.createElement('div');
+    //     tabCol.className = 'tab-col';
+    //     tabCol.setAttribute('id', `tab-col-${i}`);
+    //     tabCol.style.left = `${i * 100}px`;
+    //     tableau.appendChild(tabCol);
+    //     for(j = 0; j < i; j++) {
+    //         let tabCard = document.createElement('div');
+    //         tabCard.classList.add('tab-card', 'card');
+    //         tabCard.setAttribute('id', cards[idxCounter].id)
+    //         tabCard.style.zIndex = j;
+    //         tabCard.style.top = `${300 + 15 * topCountT}px`;
+    //         if (j === (i-1)) {
+    //             tabCard.classList.add('flipped');
+    //         }
+    //         tabCol.appendChild(tabCard);
 
-            addFrontBack('front', idxCounter);
-            // addFrontBack('back', idxCounter);
+    //         addFrontBack('front', idxCounter);
+    //         // addFrontBack('back', idxCounter);
 
-            idxCounter++;
-            topCountT++;
-        }
-        topCountT = 0;
-    }
+    //         idxCounter++;
+    //         topCountT++;
+    //     }
+    //     topCountT = 0;
+    // }
 
     // Start stopwatch //
     // ---------------------------------------------------------------------- //
@@ -162,12 +163,11 @@ startGame(); // <<<<<<<<<<<< START GAME <<<<<<<<<<<< //
 
 deckCards = document.querySelectorAll('.deck-card');
     
-zCountD = 0;
+zCountD = 1; 
 
 deckCards.forEach(function(c) {
     c.addEventListener('click', function stackDeck() {
-        c.style.left = '100px';
-        c.style.top = `${15 * zCountD}px`;
+        seen.appendChild(c);
         c.style.zIndex = zCountD;
         zCountD++;
         c.removeEventListener('click', stackDeck)

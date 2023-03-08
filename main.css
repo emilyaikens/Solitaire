@@ -23,3 +23,23 @@ h1 {
 
 /* -------- main -------- */
 
+#deck, #seen {
+    position: relative;
+}
+.card {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+img {
+    width: 100px;
+    height: 145px;
+}
+table {
+    margin: 0 auto;
+}
+td {
+    width: 100px;
+    height: 145px;
+    border: 1px solid black;
+}
