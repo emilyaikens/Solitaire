@@ -174,7 +174,9 @@ zCountD = 1;
 
 deckCards.forEach(function(c) {
     c.addEventListener('click', function stackDeck() {
-        deckHolder.style.visibility = 'hidden';
+        if (deckHolder) {
+            deckHolder.remove();
+        };
         c.style.zIndex = zCountD;
         c.classList.add('flipped');
         seen.appendChild(c);

@@ -27,9 +27,7 @@ h1 {
     position: relative;
 }
 .card {
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
@@ -38,12 +36,17 @@ h1 {
 }
 .front, .back {
     position: absolute;
+    left: 0;
+    top: 0;
     backface-visibility: hidden;
 }
 .back {
     transform: rotateY(180deg);
 }
 img {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100px;
     height: 145px;
 }
@@ -53,6 +56,5 @@ table {
 td {
     width: 100px;
     height: 145px;
-    border: 1px solid black;
-    background-color: transparent;
+    padding: 10px;
 }
