@@ -39,8 +39,10 @@ h1 {
     left: 0;
     top: 0;
     backface-visibility: hidden;
+    width: 100px;
+    height: 145px;
 }
-.back {
+.front {
     transform: rotateY(180deg);
 }
 img {

@@ -12,6 +12,8 @@ class Card {
 
 // Game vars //
 // ----------------------------------------------------------------- //
+let cards = []
+
 let heartImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 let diamondImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 let spadeImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
@@ -39,7 +41,6 @@ function startGame() {
 
     // Instantiate new cards and push to cards array //
     // ----------------------------------------------------------------------- //
-    let cards = []
 
     function createCards(suite, color, imgs, idMod) {
         for (let i = 1; i < 14; i++) {
@@ -69,10 +70,6 @@ function startGame() {
         let card = document.createElement('img');
         card.className = side;
         side === 'front' ? card.src = cards[i].img : card.src = pinkImg;
-        // if (side === 'front') {
-        //     card.src = cards[i].img
-        // }
-        // else 
         thisCard = document.getElementById(cards[i].id);
         thisCard.appendChild(card);
     }
@@ -93,6 +90,7 @@ function startGame() {
     for (i = 1; i < 5; i++) {
         let fd = document.createElement('td');
         fd.setAttribute('id', `fd-col-${i}`);
+        fd.setAttribute('class', 'fd-col');
         fd.style.position = 'relative';
         upper.appendChild(fd);
 
@@ -113,6 +111,7 @@ function startGame() {
     for (i = 1; i < 8; i++) {
         let tabCol = document.createElement('td');
         tabCol.setAttribute('id', `tab-col-${i}`);
+        tabCol.setAttribute('class', "tab-col");
         tabCol.style.position = 'relative';
         lower.appendChild(tabCol);
         for(j = 0; j < i; j++) {
@@ -121,13 +120,14 @@ function startGame() {
             tabCard.setAttribute('id', cards[idxCounter].id)
             tabCard.style.zIndex = j;
             tabCard.style.top = `${15 * topCountT}px`;
+            //for the top card
             if (j === (i-1)) {
                 tabCard.classList.add('flipped');
             }
             tabCol.appendChild(tabCard);
 
             addFrontBack('front', idxCounter);
-            // addFrontBack('back', idxCounter);
+            addFrontBack('back', idxCounter);
 
             idxCounter++;
             topCountT++;
@@ -167,20 +167,51 @@ startGame(); // <<<<<<<<<<<< START GAME <<<<<<<<<<<< //
 // Card movements //
 // ----------------------------------------------------------------- //
 
+// From deck to seen on click
 deckCards = document.querySelectorAll('.deck-card');
-deckHolder = document.getElementById('deck-holder');
     
 zCountD = 1; 
 
 deckCards.forEach(function(c) {
     c.addEventListener('click', function stackDeck() {
-        if (deckHolder) {
-            deckHolder.remove();
-        };
         c.style.zIndex = zCountD;
         c.classList.add('flipped');
         seen.appendChild(c);
         zCountD++;
         c.removeEventListener('click', stackDeck)
+        checkFlipped()
     })
 })
+
+selected = [];
+
+// Select Foundation as second selection
+
+
+// Select flipped card(s)
+function checkFlipped() {
+        flippedCards = document.querySelectorAll('.flipped');
+        flippedCards.forEach(function(f) {
+            f.addEventListener('click', function() {
+                if (selected.length < 2) {
+                    findCard(f.id);
+                    console.log(selected);
+                    thisImg = f.querySelector('img');
+                    thisImg.style.border = '2px solid black';
+                };
+            })
+        });
+    }
+checkFlipped();
+
+// Find card based on id
+function findCard(s) {
+    cards.forEach(function(c) {
+        if (c.id == s) {
+            selected.push(c)
+        }
+    })
+}
+
+// Check if card can move to second location
+
