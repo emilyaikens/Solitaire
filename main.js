@@ -16,6 +16,9 @@ let heartImgs = ['images/card_back.png','images/card_back.png','images/card_back
 let diamondImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 let spadeImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
 let clubImgs = ['images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png','images/card_back.png',]
+let backImg = 'images/card_back.png';
+let blankImg = 'images/green.jpeg';
+let pinkImg = 'images/pink.png';
 
 let score = 0;
 let moves = 0;
@@ -65,7 +68,11 @@ function startGame() {
     function addFrontBack(side, i) {
         let card = document.createElement('img');
         card.className = side;
-        card.src = cards[i].img;
+        side === 'front' ? card.src = cards[i].img : card.src = pinkImg;
+        // if (side === 'front') {
+        //     card.src = cards[i].img
+        // }
+        // else 
         thisCard = document.getElementById(cards[i].id);
         thisCard.appendChild(card);
     }
@@ -79,7 +86,7 @@ function startGame() {
         deck.appendChild(deckCard);
 
         addFrontBack('front', i);
-        // addFrontBack('back', i);
+        addFrontBack('back', i);
     }
 
     // Foundations
@@ -94,7 +101,7 @@ function startGame() {
         fd.appendChild(fdCard);
 
         cardHolder = document.createElement('img');
-        cardHolder.src = 'images/green.jpeg';
+        cardHolder.src = blankImg;
         cardHolder.style.zIndex = 0;
         fdCard.appendChild(cardHolder);
     };
@@ -107,7 +114,6 @@ function startGame() {
         let tabCol = document.createElement('td');
         tabCol.setAttribute('id', `tab-col-${i}`);
         tabCol.style.position = 'relative';
-        //tabCol.style.left = `${i * 100}px`;
         lower.appendChild(tabCol);
         for(j = 0; j < i; j++) {
             let tabCard = document.createElement('div');
@@ -162,13 +168,16 @@ startGame(); // <<<<<<<<<<<< START GAME <<<<<<<<<<<< //
 // ----------------------------------------------------------------- //
 
 deckCards = document.querySelectorAll('.deck-card');
+deckHolder = document.getElementById('deck-holder');
     
 zCountD = 1; 
 
 deckCards.forEach(function(c) {
     c.addEventListener('click', function stackDeck() {
-        seen.appendChild(c);
+        deckHolder.style.visibility = 'hidden';
         c.style.zIndex = zCountD;
+        c.classList.add('flipped');
+        seen.appendChild(c);
         zCountD++;
         c.removeEventListener('click', stackDeck)
     })

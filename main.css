@@ -30,6 +30,18 @@ h1 {
     position: absolute;
     left: 0;
     top: 0;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flipped {
+    transform: rotateY(180deg);
+}
+.front, .back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+.back {
+    transform: rotateY(180deg);
 }
 img {
     width: 100px;
@@ -42,4 +54,5 @@ td {
     width: 100px;
     height: 145px;
     border: 1px solid black;
+    background-color: transparent;
 }
