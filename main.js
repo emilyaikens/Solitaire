@@ -100,34 +100,34 @@ function startGame() {
     };
 
     // Tableau
-    // idxCounter = 24;
-    // topCountT = 0;
+    idxCounter = 24;
+    topCountT = 0;
 
-    // for (i = 1; i < 8; i++) {
-    //     let tabCol = document.createElement('div');
-    //     tabCol.className = 'tab-col';
-    //     tabCol.setAttribute('id', `tab-col-${i}`);
-    //     tabCol.style.left = `${i * 100}px`;
-    //     tableau.appendChild(tabCol);
-    //     for(j = 0; j < i; j++) {
-    //         let tabCard = document.createElement('div');
-    //         tabCard.classList.add('tab-card', 'card');
-    //         tabCard.setAttribute('id', cards[idxCounter].id)
-    //         tabCard.style.zIndex = j;
-    //         tabCard.style.top = `${300 + 15 * topCountT}px`;
-    //         if (j === (i-1)) {
-    //             tabCard.classList.add('flipped');
-    //         }
-    //         tabCol.appendChild(tabCard);
+    for (i = 1; i < 8; i++) {
+        let tabCol = document.createElement('td');
+        tabCol.setAttribute('id', `tab-col-${i}`);
+        tabCol.style.position = 'relative';
+        //tabCol.style.left = `${i * 100}px`;
+        lower.appendChild(tabCol);
+        for(j = 0; j < i; j++) {
+            let tabCard = document.createElement('div');
+            tabCard.classList.add('card');
+            tabCard.setAttribute('id', cards[idxCounter].id)
+            tabCard.style.zIndex = j;
+            tabCard.style.top = `${15 * topCountT}px`;
+            if (j === (i-1)) {
+                tabCard.classList.add('flipped');
+            }
+            tabCol.appendChild(tabCard);
 
-    //         addFrontBack('front', idxCounter);
-    //         // addFrontBack('back', idxCounter);
+            addFrontBack('front', idxCounter);
+            // addFrontBack('back', idxCounter);
 
-    //         idxCounter++;
-    //         topCountT++;
-    //     }
-    //     topCountT = 0;
-    // }
+            idxCounter++;
+            topCountT++;
+        }
+        topCountT = 0;
+    }
 
     // Start stopwatch //
     // ---------------------------------------------------------------------- //
