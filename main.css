@@ -55,7 +55,14 @@ img {
 table {
     margin: 0 auto;
 }
+tbody {
+    position: relative;
+}
+tr {
+    position: relative;
+}
 td {
+    position: relative;
     width: 100px;
     height: 145px;
     padding: 10px;

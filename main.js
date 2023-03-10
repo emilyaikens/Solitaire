@@ -95,7 +95,7 @@ function startGame() {
         upper.appendChild(fd);
 
         let fdCard = document.createElement('div');
-        fdCard.className = 'card';
+        fdCard.classList.add('card', 'fd-card');
         fd.appendChild(fdCard);
 
         cardHolder = document.createElement('img');
@@ -167,7 +167,7 @@ startGame(); // <<<<<<<<<<<< START GAME <<<<<<<<<<<< //
 // Card movements //
 // ----------------------------------------------------------------- //
 
-// From deck to seen on click
+// When player clicks on a card in deck, flip it and move to seen pile
 deckCards = document.querySelectorAll('.deck-card');
     
 zCountD = 1; 
@@ -185,17 +185,13 @@ deckCards.forEach(function(c) {
 
 selected = [];
 
-// Select Foundation as second selection
-
-
-// Select flipped card(s)
+// Select first card
 function checkFlipped() {
         flippedCards = document.querySelectorAll('.flipped');
         flippedCards.forEach(function(f) {
             f.addEventListener('click', function() {
                 if (selected.length < 2) {
                     findCard(f.id);
-                    console.log(selected);
                     thisImg = f.querySelector('img');
                     thisImg.style.border = '2px solid black';
                 };
@@ -204,14 +200,39 @@ function checkFlipped() {
     }
 checkFlipped();
 
+// Select Foundation as second selection
+function checkFd() {
+    let fdCards = document.querySelectorAll('.fd-card');
+
+    fdCards.forEach(function(c) {
+        c.addEventListener('click', function() {
+            console.log("clicked");
+            // if (selected.length === 1) {
+            //     checkMove(c);
+            // }
+        })
+    })
+}
+checkFd();
+
 // Find card based on id
 function findCard(s) {
     cards.forEach(function(c) {
         if (c.id == s) {
-            selected.push(c)
+            checkMove(c);
         }
     })
 }
 
-// Check if card can move to second location
-
+function checkMove(n) {
+    selected.push(n);
+    if (selected.length == 2) {
+        if (selected[1].className === 'fd-card') {
+            console.log("fdcard")
+            // change parent of card (move)
+            // add id to that column to the suite of the card that was moved
+            // z index
+        }
+    } 
+    console.log(selected);
+}
